@@ -1,0 +1,263 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DE3282A414FAD3540087C460 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3282A314FAD3540087C460 /* UIKit.framework */; };
+		DE3282A614FAD3540087C460 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3282A514FAD3540087C460 /* Foundation.framework */; };
+		DE3282A814FAD3540087C460 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3282A714FAD3540087C460 /* CoreGraphics.framework */; };
+		DE3282AE14FAD3540087C460 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE3282AC14FAD3540087C460 /* InfoPlist.strings */; };
+		DE3282B014FAD3550087C460 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3282AF14FAD3550087C460 /* main.m */; };
+		DE3282B414FAD3550087C460 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3282B314FAD3550087C460 /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DE32829F14FAD3540087C460 /* encountAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = encountAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE3282A314FAD3540087C460 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DE3282A514FAD3540087C460 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DE3282A714FAD3540087C460 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DE3282AB14FAD3540087C460 /* encountAR-Info.plist */ = {isa = PBXFileReference; path = "encountAR-Info.plist"; sourceTree = "<group>"; };
+		DE3282AD14FAD3540087C460 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DE3282AF14FAD3550087C460 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DE3282B114FAD3550087C460 /* encountAR-Prefix.pch */ = {isa = PBXFileReference; path = "encountAR-Prefix.pch"; sourceTree = "<group>"; };
+		DE3282B214FAD3550087C460 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		DE3282B314FAD3550087C460 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DE32829C14FAD3540087C460 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE3282A414FAD3540087C460 /* UIKit.framework in Frameworks */,
+				DE3282A614FAD3540087C460 /* Foundation.framework in Frameworks */,
+				DE3282A814FAD3540087C460 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DE32829414FAD3530087C460 = {
+			isa = PBXGroup;
+			children = (
+				DE3282A914FAD3540087C460 /* encountAR */,
+				DE3282A214FAD3540087C460 /* Frameworks */,
+				DE3282A014FAD3540087C460 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DE3282A014FAD3540087C460 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE32829F14FAD3540087C460 /* encountAR.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DE3282A214FAD3540087C460 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE3282A314FAD3540087C460 /* UIKit.framework */,
+				DE3282A514FAD3540087C460 /* Foundation.framework */,
+				DE3282A714FAD3540087C460 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE3282A914FAD3540087C460 /* encountAR */ = {
+			isa = PBXGroup;
+			children = (
+				DE3282B214FAD3550087C460 /* AppDelegate.h */,
+				DE3282B314FAD3550087C460 /* AppDelegate.m */,
+				DE3282AA14FAD3540087C460 /* Supporting Files */,
+			);
+			path = encountAR;
+			sourceTree = "<group>";
+		};
+		DE3282AA14FAD3540087C460 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DE3282AB14FAD3540087C460 /* encountAR-Info.plist */,
+				DE3282AC14FAD3540087C460 /* InfoPlist.strings */,
+				DE3282AF14FAD3550087C460 /* main.m */,
+				DE3282B114FAD3550087C460 /* encountAR-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DE32829E14FAD3540087C460 /* encountAR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE3282B714FAD3550087C460 /* Build configuration list for PBXNativeTarget "encountAR" */;
+			buildPhases = (
+				DE32829B14FAD3540087C460 /* Sources */,
+				DE32829C14FAD3540087C460 /* Frameworks */,
+				DE32829D14FAD3540087C460 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = encountAR;
+			productName = encountAR;
+			productReference = DE32829F14FAD3540087C460 /* encountAR.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DE32829614FAD3530087C460 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = DE32829914FAD3530087C460 /* Build configuration list for PBXProject "encountAR" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DE32829414FAD3530087C460;
+			productRefGroup = DE3282A014FAD3540087C460 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DE32829E14FAD3540087C460 /* encountAR */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DE32829D14FAD3540087C460 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE3282AE14FAD3540087C460 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DE32829B14FAD3540087C460 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE3282B014FAD3550087C460 /* main.m in Sources */,
+				DE3282B414FAD3550087C460 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DE3282AC14FAD3540087C460 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE3282AD14FAD3540087C460 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DE3282B514FAD3550087C460 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DE3282B614FAD3550087C460 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DE3282B814FAD3550087C460 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "encountAR/encountAR-Prefix.pch";
+				INFOPLIST_FILE = "encountAR/encountAR-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DE3282B914FAD3550087C460 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "encountAR/encountAR-Prefix.pch";
+				INFOPLIST_FILE = "encountAR/encountAR-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DE32829914FAD3530087C460 /* Build configuration list for PBXProject "encountAR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE3282B514FAD3550087C460 /* Debug */,
+				DE3282B614FAD3550087C460 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE3282B714FAD3550087C460 /* Build configuration list for PBXNativeTarget "encountAR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE3282B814FAD3550087C460 /* Debug */,
+				DE3282B914FAD3550087C460 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DE32829614FAD3530087C460 /* Project object */;
+}
