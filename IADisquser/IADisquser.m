@@ -1,29 +1,3 @@
-//
-// IADisquser.m
-// Disquser
-// 
-// Copyright (c) 2011 Ikhsan Assaat. All Rights Reserved 
-// 
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-// 
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-// 
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-//
-
-
 #import "IADisquser.h"
 #import "IADisqusConfig.h"
 #import "AFHTTPClient.h"
@@ -33,7 +7,7 @@
 
 #pragma mark - View Threads
 + (void)getThreadsFromCategoryID:(NSString *)categoryID success:(DisqusFetchThreadSuccess)successBlock fail:(DisqusFail)failBlock{
-    
+    NSLog(@"the categoryID is %@", categoryID);
     // make the parameters dictionary 
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
                                 DISQUS_API_SECRET, @"api_secret",
@@ -49,6 +23,7 @@
                parameters:parameters
                   success:^(id object) {
                       // fetch the json response to a dictionary
+                    
                       NSDictionary *responseDictionary = [object objectFromJSONData];
                       
                       // check the code (success is 0)
@@ -89,9 +64,9 @@
                                   aDisqusThread.ipAddress = [threadDictionary objectForKey:@"ipAddress"];
                                   aDisqusThread.threadID= [threadDictionary objectForKey:@"id"];
                                   aDisqusThread.title= [threadDictionary objectForKey:@"title"];
-                                  NSLog(@"%@",aDisqusThread.forumName);
-                                  NSLog(@"%@",aDisqusThread.threadID);
-                                  NSLog(@"%@",aDisqusThread.title);
+                                  //NSLog(@"%@",aDisqusThread.forumName);
+                                  //NSLog(@"%@",aDisqusThread.threadID);
+                                  //NSLog(@"%@",aDisqusThread.title);
                                   // add the comment to the mutable array
                                   [threads addObject:aDisqusThread];
                                   [aDisqusThread release];
@@ -131,7 +106,7 @@
                       if ([code integerValue] != 0) {   // there's an error
                           NSString *errorMessage = @"Error on fetching comments from disqus";
                           
-                          NSError *error = [NSError errorWithDomain:@"com.ikhsanassaat.disquser" code:25 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:errorMessage, NSLocalizedDescriptionKey, nil]];
+                          NSError *error = [NSError errorWithDomain:@"com.encountar.disquser" code:25 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:errorMessage, NSLocalizedDescriptionKey, nil]];
                           failBlock(error);
                           
                       } else {  // fetching comments in json succeeded, now on to parsing
@@ -166,7 +141,8 @@
                                   aDisqusComment.htmlMessage = [commentDictionary objectForKey:@"message"];
                                   aDisqusComment.date = [df dateFromString:[[commentDictionary objectForKey:@"createdAt"] stringByReplacingOccurrencesOfString:@"T" withString:@" "]];
                                   aDisqusComment.threadID = [commentDictionary objectForKey:@"thread"];
-                                  
+                                  //NSLog(@"the comment is %@", aDisqusComment.rawMessage);
+                                  NSLog(@"the url is %@", aDisqusComment.authorURL);
                                   // add the comment to the mutable array
                                   [comments addObject:aDisqusComment];
                                   [aDisqusComment release];
@@ -197,6 +173,15 @@
     [IADisquser getCommentsWithParameters:parameters success:successBlock fail:failBlock];
 }
 
++ (void)getMostRecentCommentsFromThreadID:(NSString *)threadID success:(DisqusFetchCommentsSuccess)successBlock fail:(DisqusFail)failBlock {
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
+                                DISQUS_API_SECRET, @"api_secret",
+                                threadID, @"thread",@"1", @"limit",
+                                nil];
+    
+    // send the request
+    [IADisquser getCommentsWithParameters:parameters success:successBlock fail:failBlock];
+}
 + (void)getCommentsFromThreadIdentifier:(NSString *)threadIdentifier success:(DisqusFetchCommentsSuccess)successBlock fail:(DisqusFail)failBlock {
     // make the parameters dictionary 
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -241,7 +226,7 @@
                           // there's an error
                           NSString *errorMessage = @"Error on getting the thread ID from disqus";
                           
-                          NSError *error = [NSError errorWithDomain:@"com.ikhsanassaat.disquser" code:26 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:errorMessage, NSLocalizedDescriptionKey, nil]];
+                          NSError *error = [NSError errorWithDomain:@"com.encoutar.disquser" code:26 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:errorMessage, NSLocalizedDescriptionKey, nil]];
                           failBlock(error);
                       } else {
                           // get the thread ID, pass it to the block
@@ -288,6 +273,7 @@
                             comment.threadID, @"thread",
                             comment.authorName, @"author_name",
                             comment.authorEmail, @"author_email",
+                            comment.authorURL, @"author_url",
                             comment.rawMessage, @"message",
                             nil] 
                    success:^(id object) {
@@ -301,7 +287,7 @@
                            // there's an error
                            NSString *errorMessage = @"Error on posting comment to disqus";
                            
-                           NSError *error = [NSError errorWithDomain:@"com.ikhsanassaat.disquser" code:27 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:errorMessage, NSLocalizedDescriptionKey, nil]];
+                           NSError *error = [NSError errorWithDomain:@"com.encountar.disquser" code:27 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:errorMessage, NSLocalizedDescriptionKey, nil]];
                            failBlock(error);
                        } else {
                            successBlock();

@@ -3,7 +3,7 @@
 //  Disquser
 //
 //  Created by Sheng Xu on 12-03-17.
-//  Copyright (c) 2012 Beetlebox. All rights reserved.
+//  
 //
 
 #import <Foundation/Foundation.h>

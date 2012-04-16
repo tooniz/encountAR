@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<QCARConfig xsi:noNamespaceSchemaLocation="qcar_config.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Tracking>
+        <ImageTarget name="Solitare_VII_ELEGY" size="1800 1800"/>
+        <ImageTarget name="Softshelled_Turtle" size="1800 1800"/>
+        <ImageTarget name="Lizard" size="1800 1800"/>
+        <ImageTarget name="Great_Horned_Owl" size="1800 1800"/>
+        <ImageTarget name="Cobra_III" size="1800 1800"/>
+        <ImageTarget name="Cobra_II" size="1800 1800"/>
+        <ImageTarget name="Cobra_I" size="1800 1800"/>
+        <ImageTarget name="Canada_Goose" size="1800 1800"/>
+        <ImageTarget name="Barred_Owl" size="1800 1800"/>
+    </Tracking>
+</QCARConfig>

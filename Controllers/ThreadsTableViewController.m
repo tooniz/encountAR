@@ -3,7 +3,6 @@
 //  Disquser
 //
 //  Created by Sheng Xu on 12-03-17.
-//  Copyright (c) 2012 Beetlebox. All rights reserved.
 //
 
 #import "ThreadsTableViewController.h"
@@ -11,6 +10,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "IACommentCell.h"
 #import "TableCommentsViewController.h"
+#import "AppDelegate.h"
 
 #define CELL_CONTENT_WIDTH  320.0
 #define CELL_CONTENT_MARGIN 4.0
@@ -54,14 +54,20 @@
     // set view's interface
     [self.tableView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     
-    UIBarButtonItem *refresh = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(getComments)] autorelease];
+    UIBarButtonItem *refresh = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(getThreadList)] autorelease];
     [self.navigationItem setRightBarButtonItem:refresh];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc ] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
+    self.navigationItem.leftBarButtonItem = doneButton;
     // get array of comments
-    [self getThreadList];
+    [doneButton release];
 }
 
+- (void) done {
+    [self dismissModalViewControllerAnimated:YES];
+    app.isPaused = 0;
+    
+}
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -77,6 +83,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self getThreadList];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -92,7 +99,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 #pragma mark - Table view data source
@@ -178,7 +185,7 @@
 - (void)getThreadList {
     // start activity indicator
     [[self indicator] startAnimating];
-    [self.tableView setAlpha:0.5];
+    //[self.tableView setAlpha:0.5];
     
     // fire the request
     [IADisquser getThreadsFromCategoryID:categoryID 
@@ -188,14 +195,14 @@
                                      self.threads = _threadList;
                                     // start activity indicator
                                     [[self indicator] stopAnimating];
-                                    [self.tableView setAlpha:1.0];
+                                    //[self.tableView setAlpha:1.0];
                                     
                                     // reload the table
                                     [self.tableView reloadData];
                                 } fail:^(NSError *error) {
                                     // start activity indicator
                                     [[self indicator] stopAnimating];
-                                    [self.tableView setAlpha:1.0];
+                                    //[self.tableView setAlpha:1.0];
                                     
                                     // alert the error
                                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Occured" 

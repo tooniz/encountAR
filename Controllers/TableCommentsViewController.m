@@ -2,26 +2,8 @@
 // TableCommentsViewController.m
 // Disquser
 // 
-// Copyright (c) 2011 Ikhsan Assaat. All Rights Reserved 
-// 
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-// 
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-// 
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-//
+//  Created by Sheng Xu on 12-03-17.
+
 
 
 #import "TableCommentsViewController.h"
@@ -77,7 +59,7 @@
      
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 #pragma mark - Table view data source
@@ -118,7 +100,8 @@
                                          CELL_CONTENT_WIDTH - (2 * CELL_CONTENT_MARGIN), 
                                          MAX(size.height, 10.0) + (2 * CELL_CONTENT_MARGIN));
     
-    [cell.imageView setImageWithURL:[NSURL URLWithString:aComment.authorAvatar] 
+    // we are getting the cell image from authorURL instead of authorAvatar because it is facebook
+    [cell.imageView setImageWithURL:[NSURL URLWithString:aComment.authorURL] 
                    placeholderImage:[UIImage imageNamed:@"noavatar.png"]];
     
     return cell;
@@ -135,7 +118,7 @@
 - (void)getComments {
     // start activity indicator
     [[self indicator] startAnimating];
-    [self.tableView setAlpha:0.5];
+    //[self.tableView setAlpha:0.5];
     
     // fire the request
     [IADisquser getCommentsFromThreadID:threadID
@@ -152,7 +135,7 @@
                                         } fail:^(NSError *error) {
                                             // start activity indicator
                                             [[self indicator] stopAnimating];
-                                            [self.tableView setAlpha:1.0];
+                                            //[self.tableView setAlpha:1.0];
                                             
                                             // alert the error
                                             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Occured" 

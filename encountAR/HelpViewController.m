@@ -7,6 +7,7 @@
 //
 
 #import "HelpViewController.h"
+#import "AppDelegate.h"
 
 @interface HelpViewController ()
 
@@ -23,10 +24,19 @@
     return self;
 }
 
+- (void) done {
+    [self dismissModalViewControllerAnimated:YES];
+    app.cameraZoom.hidden = NO;
+    app.helpBtn.hidden = NO;
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc ] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
+    self.navigationItem.leftBarButtonItem = doneButton;
 }
 
 - (void)viewDidUnload
@@ -38,7 +48,8 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 @end

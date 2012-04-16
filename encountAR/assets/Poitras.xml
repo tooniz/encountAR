@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<QCARConfig xsi:noNamespaceSchemaLocation="qcar_config.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Tracking>
+        <ImageTarget name="598" size="1296 968"/>
+        <ImageTarget name="588" size="968 1296"/>
+        <ImageTarget name="Potato_Peeling" size="500 423.75"/>
+    </Tracking>
+</QCARConfig>
